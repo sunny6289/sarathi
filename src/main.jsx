@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/logout",
-        element: <Logout />
+        element: <Logout />,
       },
       {
         path: "/about",
@@ -43,7 +43,8 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <ProtectedRoute element={<div>Contact</div>} />, // ProtectedRoute to restrict access to the Contact page, only accessible to authenticated users
-      }
+      },
+      { path: "*", element: <div>Not Found</div> },
     ],
   },
 ]);

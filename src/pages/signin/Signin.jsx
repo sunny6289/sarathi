@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { loginUser, setIsLoggedIn } from "../../redux/slices/signin/authSlice";
 import { Link, useNavigate } from "react-router-dom";
+import { setToast } from "../../redux/slices/toastSlice";
 
 function Signin() {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ function Signin() {
     dispatch(loginUser(data));
     localStorage.setItem("isLoggedIn", true);
     dispatch(setIsLoggedIn(true));
+    dispatch(setToast({ message: "Logged in successfully", status: "success" }));
     navigate("/");
   };
 
