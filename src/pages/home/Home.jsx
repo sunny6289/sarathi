@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, setIsLoggedIn } from "../../redux/slices/signin/authSlice";
+import Slider from "../../components/imageSlider/Slider";
 
 function Home() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -22,6 +23,7 @@ function Home() {
             Welcome to the Home Page
           </h1>
           <p className="text-center">You are logged in</p>
+          {/* <Slider /> */}
         </>
       ) : (
         <>
@@ -29,6 +31,7 @@ function Home() {
             You are not logged in
           </h1>
           <p className="text-center">Please login to view this page</p>
+          {/* <Slider /> */}
         </>
       )}
     </div>
