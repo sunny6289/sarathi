@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearToast } from "./redux/slices/toastSlice";
 import Loader from "./components/Loader";
+import Sidebar from "./components/sidebar/Sidebar";
 function App() {
   const responseToast = useSelector((state) => state.toast.responseToast);
   const status = useSelector((state) => state.toast.status);
@@ -36,7 +37,8 @@ function App() {
       <ToastContainer />
       {loading && <Loader isLoading={loading} />}
       <Navbar />
-      <div className="pt-16 min-h-screen">
+      <div className="flex pt-16 min-h-screen">
+        <Sidebar/>
         <Outlet />
       </div>
       <Footer />
