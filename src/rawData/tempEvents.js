@@ -1,4 +1,4 @@
-export const TEMP_EVENT_CARDS = [
+export const TEMP_EVENTS = [
     {
         id: 'event1',
         src: 'https://img.freepik.com/free-photo/close-up-girl-holding-stack-books_23-2148448069.jpg?size=626&ext=jpg&ga=GA1.1.557918792.1704901850&semt=ais_user',
