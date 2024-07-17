@@ -1,0 +1,25 @@
+.image-slider{
+    position: relative;
+    height: 45vh;
+    width: 100%;
+    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.imageChangeBtn{
+    padding: 20px 8px;
+    background: #c5c5c565;
+    color: #000;
+    font-size: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.slider-img{
+    position: absolute;
+    height: 50vh;
+    min-width: 100%;
+    object-fit: cover;
+}
