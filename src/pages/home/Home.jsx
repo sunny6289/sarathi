@@ -30,6 +30,7 @@ function Home() {
             You are not logged in
           </h1>
           <p className="text-center">Please login to view this page</p>
+          {/* <Slider /> */}
         </>
       )}
     </div>
