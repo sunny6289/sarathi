@@ -4,7 +4,7 @@ import Card from "../card/Card";
 
 const CardContainer = () => {
     return (
-        <div className="h-[45vh] w-[100%] bg-slate-100 flex justify-between">
+        <div className="h-[45vh] w-[100%] bg-slate-100 flex justify-between cursor-pointer">
             <div className="cards flex gap-6 p-6">
                 {
                     TEMP_EVENTS.map((card)=> <Card key={card.id} card={card}/>)
