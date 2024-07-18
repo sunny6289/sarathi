@@ -3,7 +3,7 @@ import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearToast } from "./redux/slices/toastSlice";
@@ -37,8 +37,8 @@ function App() {
       <ToastContainer />
       {loading && <Loader isLoading={loading} />}
       <Navbar />
-      <div className="flex pt-16 min-h-screen">
-        <Sidebar/>
+      <Sidebar />
+      <div className="flex pt-[80px] min-h-screen">
         <Outlet />
       </div>
       <Footer />

@@ -1,19 +1,23 @@
-import './Sidebar.css';
+import { navItems } from "../../rawData/navItems";
+import "./Sidebar.css";
+import { useSelector } from "react-redux";
+
 const Sidebar = () => {
-    return (
-        <div className="sidebar font-sans text-3xl">
-            <div className='sidebar-close-icon font-semibold'>x</div>
-            <div className="sidebar-part1 font-semibold">
-                <div className="sidebar-item">We Provide</div>
-                <div className="sidebar-item">Ask Donation</div>
-                <div className="sidebar-item">Emergency</div>
-                <div className="sidebar-item">Profile</div>
-            </div>
-            <div className="sidebar-part2 font-semibold">
-                <div className="sidebar-item">Become a Volunteer</div>
-            </div>
-        </div>
-    );
-}
+  const isOpen = useSelector((state) => state.sidebar.isOpen);
+  return (
+    <div className={`sidebar font-sans text-3xl ${isOpen ? "open" : "closed"}`}>
+      <div className="sidebar-part1 font-semibold">
+        {navItems.map((item) => (
+          <div key={item.id} className="sidebar-item">
+            {item.title}
+          </div>
+        ))}
+      </div>
+      <div className="sidebar-part2 font-semibold">
+        <div className="sidebar-item">Become a Volunteer</div>
+      </div>
+    </div>
+  );
+};
 
 export default Sidebar;
