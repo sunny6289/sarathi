@@ -5,7 +5,7 @@ function Footer() {
     <footer className="bg-gray-800 text-white py-4">
       <div className="container mx-auto text-center">
         <p>
-          &copy; {new Date().getFullYear()} No Poverty. All rights reserved.
+          &copy; {new Date().getFullYear()} Sarathi. All rights reserved.
         </p>
         <p>
           Follow us on

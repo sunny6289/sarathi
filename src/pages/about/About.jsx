@@ -1,4 +1,11 @@
+/*
+                              ****** IMPORTANT ******
+  > THIS FILE NEEDS DO BE DELETED, BECAUSE IT IS NOT PART OF ANY OF THE ROUTES AFTER SIGN IN
+  > WE CAN SHOW IT AT THE TIME OF SIGNING IT FOR THE FIRST TIME WITH SOME ANIMATION
+  > PLEASE DELETE IT AFTER CHANGING THE ROUTES
+*/
 import React from 'react'
+
 
 function About() {
   return (

@@ -10,16 +10,16 @@ const Card = ({ card }) => {
   };
 
   return (
-    <div class="card" onClick={() => handleClick()}>
-      <div class="card-image">
+    <div className="card" onClick={() => handleClick()}>
+      <div className="card-image">
         <img src={src} alt={title} />
       </div>
-      <div class="heading">
+      <div className="heading">
         {" "}
         {title}
-        <div class="author">
+        <div className="author">
           {" "}
-          By <span class="name">{organizedBy}</span> {Date}
+          By <span className="name">{organizedBy}</span> {Date}
         </div>
       </div>
     </div>

@@ -39,8 +39,9 @@ function App() {
       <ToastContainer />
       {loading && <Loader isLoading={loading} />}
       <Navbar />
+
       <Sidebar />
-      <div className="flex pt-[80px] min-h-screen">
+      <div className="flex pt-[55px] min-h-screen">
         <Outlet />
       </div>
       <Footer />
