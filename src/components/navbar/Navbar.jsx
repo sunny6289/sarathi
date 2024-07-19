@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { closeSidebar, openSidebar } from "../sidebar/sidebarAction";
 import { FaBars, FaTimes } from "react-icons/fa"; // Import icons
+import { closeSidebar, openSidebar } from "../../redux/slices/sidebar/sidebarReducer";
 
 function Navbar() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -20,10 +20,10 @@ function Navbar() {
     <div className="flex fixed w-full items-center justify-between px-3 bg-blue-100 shadow-md mb-4 z-10">
       {isLoggedIn && (
         <div className="menuBtn">
-        <button onClick={handleMenuClick}>
-          {isSidebarOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-        </button>
-      </div>
+          <button onClick={handleMenuClick}>
+            {isSidebarOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          </button>
+        </div>
       )}
       {/* logo section */}
       <div className="logo">
