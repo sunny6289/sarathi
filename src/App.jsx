@@ -1,15 +1,16 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation, useParams } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearToast } from "./redux/slices/toastSlice";
 import Loader from "./components/Loader";
 import Sidebar from "./components/sidebar/Sidebar";
-function App() {
+
+function App({ hideSideBar }) {
   const responseToast = useSelector((state) => state.toast.responseToast);
   const status = useSelector((state) => state.toast.status);
   const message = useSelector((state) => state.toast.message);
@@ -32,6 +33,7 @@ function App() {
       dispatch(clearToast());
     }
   }, [responseToast, status, message]);
+
   return (
     <>
       <ToastContainer />

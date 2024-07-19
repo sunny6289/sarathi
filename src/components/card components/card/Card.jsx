@@ -1,9 +1,17 @@
+import { useNavigate } from 'react-router-dom';
 import './Card.css';
 
 const Card = ({ card }) => {
     const { id, title, src, organizedBy, Date } = card;
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+
+        navigate(`/card/${id}`)
+    }
+
     return (
-        <div class="card">
+        <div class="card" onClick={()=> handleClick()}>
             <div class="card-image">
                 <img src={src} alt={title} />
             </div>

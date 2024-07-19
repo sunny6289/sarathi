@@ -9,13 +9,13 @@ import { store } from "./redux/store/store.js";
 import Logout from "./pages/logout/Logout.jsx";
 import About from "./pages/about/About.jsx";
 import { ProtectedRoute } from "./utils/ProtectedRouter.jsx";
-import WeProvide from "./pages/we provide/WeProvide.jsx";
 
+import WeProvide from "./pages/we provide/WeProvide.jsx";
 // Create a BrowserRouter instance
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <App/>,
     children: [
       {
         path: "/",
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
       },
       { path: "*", element: <div>Not Found</div> },
     ],
-  },
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
