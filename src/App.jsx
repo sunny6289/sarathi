@@ -39,8 +39,8 @@ function App({ hideSideBar }) {
       <ToastContainer />
       {loading && <Loader isLoading={loading} />}
       <Navbar />
-      <div className="flex pt-16 min-h-screen">
-        {hideSideBar === false && <Sidebar />}
+      <Sidebar />
+      <div className="flex pt-[80px] min-h-screen">
         <Outlet />
       </div>
       <Footer />
