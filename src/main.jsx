@@ -9,14 +9,13 @@ import { store } from "./redux/store/store.js";
 import Logout from "./pages/logout/Logout.jsx";
 import About from "./pages/about/About.jsx";
 import { ProtectedRoute } from "./utils/ProtectedRouter.jsx";
-import CardContainer from "./components/card components/card container/CardContainer.jsx";
 import CardDetails from "./components/card components/card/card details/CardDetails.jsx";
 
 // Create a BrowserRouter instance
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App hideSideBar={false}/>,
+    element: <App />,
     children: [
       {
         path: "/",
@@ -46,13 +45,12 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <ProtectedRoute element={<div>Contact</div>} />, // ProtectedRoute to restrict access to the Contact page, only accessible to authenticated users
       },
+      {
+        path: "/card/:id",
+        element: <CardDetails />,
+      },
       { path: "*", element: <div>Not Found</div> },
     ],
-  },
-  {
-    path: "/card/:id",
-    element: <App hideSidebar={true} />,
-    children: [{ path: "/card/:id", element: <CardDetails /> }],
   },
 ]);
 
