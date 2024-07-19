@@ -10,7 +10,7 @@ import { clearToast } from "./redux/slices/toastSlice";
 import Loader from "./components/Loader";
 import Sidebar from "./components/sidebar/Sidebar";
 
-function App({ hideSideBar }) {
+function App() {
   const responseToast = useSelector((state) => state.toast.responseToast);
   const status = useSelector((state) => state.toast.status);
   const message = useSelector((state) => state.toast.message);
@@ -39,8 +39,9 @@ function App({ hideSideBar }) {
       <ToastContainer />
       {loading && <Loader isLoading={loading} />}
       <Navbar />
+
       <Sidebar />
-      <div className="flex pt-[80px] min-h-screen">
+      <div className="flex pt-[55px] min-h-screen">
         <Outlet />
       </div>
       <Footer />
