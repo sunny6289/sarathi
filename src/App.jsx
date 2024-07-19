@@ -38,7 +38,8 @@ function App() {
       {loading && <Loader isLoading={loading} />}
       <Navbar />
       <div className="flex pt-16 min-h-screen">
-        <Sidebar/>
+        {/* Comment Until We provide page is entirely tested */}
+        {/* <Sidebar/> */}
         <Outlet />
       </div>
       <Footer />
