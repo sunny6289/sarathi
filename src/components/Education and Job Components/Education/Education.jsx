@@ -1,13 +1,12 @@
-import React from 'react';
+import ListItem from '../../List Item/ListItem';
+import { TEMP_BOOK } from '../../../rawData/education';
 
 const Education = () => {
     return (
-        <div>
-            <p className='text-4xl text-white text-center'>
-            List of books will be here 
-            After creating List Item Component 
-            </p>
-            
+        <div className='flex flex-col gap-4'>
+            {
+                TEMP_BOOK.map((book)=> <ListItem key={book.id} item={book}/>)
+            }
         </div>
     );
 }

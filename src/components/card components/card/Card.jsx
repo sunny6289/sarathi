@@ -6,20 +6,19 @@ const Card = ({ card }) => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-
         navigate(`/card/${id}`)
     }
 
     return (
-        <div class="card" onClick={()=> handleClick()}>
-            <div class="card-image">
+        <div className="card" onClick={()=> handleClick()}>
+            <div className="card-image">
                 <img src={src} alt={title} />
             </div>
-            <div class="heading"> {title}
-                <div class="author"> By <span class="name">{organizedBy}</span> {Date}</div>
+            <div className="heading"> {title}
+                <div className="author"> By <span className="name">{organizedBy}</span> {Date}</div>
             </div>
         </div>
-    );
-}
+  );
+};
 
 export default Card;

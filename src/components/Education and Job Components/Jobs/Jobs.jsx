@@ -1,12 +1,12 @@
-import React from 'react';
+import ListItem from '../../List Item/ListItem';
+import { TEMP_JOBS } from '../../../rawData/job';
 
 const Jobs = () => {
     return (
-        <div>
-            <p className='text-4xl text-white text-center'>
-                List of jobs will be here
-                After creating List Item Component
-            </p>
+        <div className='flex flex-col gap-4'>
+            {
+                TEMP_JOBS.map((job)=>  <ListItem key={job.id} item={job}/>)
+            }
         </div>
     );
 }

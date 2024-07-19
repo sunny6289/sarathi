@@ -9,7 +9,8 @@ import { store } from "./redux/store/store.js";
 import Logout from "./pages/logout/Logout.jsx";
 import About from "./pages/about/About.jsx";
 import { ProtectedRoute } from "./utils/ProtectedRouter.jsx";
-import WeProvide from "./pages/we provide/WeProvide.jsx";
+// import CardDetails from "./components/card components/card/card details/CardDetails.jsx";
+// import WeProvide from "./pages/we provide/WeProvide.jsx";
 // Create a BrowserRouter instance
 const router = createBrowserRouter([
   {
@@ -18,8 +19,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        // element: <Home />,
-        element: <WeProvide/>
+        element: <Home />,
       },
       {
         path: "/signin",

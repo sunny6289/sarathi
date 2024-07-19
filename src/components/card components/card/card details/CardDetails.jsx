@@ -1,22 +1,18 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import { TEMP_EVENTS } from "../../../../rawData/tempEvents";
+import Button from "../../../reusable/Button";
 
 const CardDetails = () => {
-  // const params = useParams();
-  // const currCard = TEMP_EVENTS.find((item) => item.id === params.id);
-
-  // const { src, title, place, Date, Time, organizedBy } = currCard;
-  const currCard = {
-    id: 'event4',
-    src: 'https://img.freepik.com/free-vector/coding-workshop-concept-illustration_114360-8172.jpg?ga=GA1.1.557918792.1704901850&semt=ais_user',
-    title: 'Learn web development',
-    place: 'Online',
-    Date: '15 September, 2024',
-    Time: '4 PM',
-    organizedBy: 'App Brewery'
-}
-const { src, title, place, Date, Time, organizedBy } = currCard;
+  const params = useParams();
+  const currCard = TEMP_EVENTS.find((item) => item.id === params.id);
+  const { src, title, place, Date, Time, organizedBy } = currCard;
+  /*
+      This component will be conditionally rendered depending upon 'params.id'
+      if 'params.id.slice(0,3) === 'eve' then it will rendered for Event Description
+      if 'params.id.slice(0,3) === 'edu' then it will rendered for Book Description
+      if 'params.id.slice(0,3) === 'job' then it will rendered for Job Description
+      So we will be importing "TEMP_EVENTS, TEMP_BOOKS, TEMP_JOBS" all of them
+  */
   return (
     <div className="min-h-screen bg-gray-100 p-3">
       <div className="bg-white shadow-lg rounded-lg overflow-hidden ">
@@ -39,8 +35,8 @@ const { src, title, place, Date, Time, organizedBy } = currCard;
         </div>
       </div>
 
-      <div className="mt-3 w-[60%] flex">
-        <div className="px-3">
+      <div className="mt-3 flex">
+        <div className="px-3 flex-1">
           <h2 className="text-4xl font-semibold mb-3">Description: </h2>
           <p className="text-gray-700 leading-relaxed text-xl">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat
@@ -51,11 +47,9 @@ const { src, title, place, Date, Time, organizedBy } = currCard;
             mollitia suscipit sunt quam?
           </p>
         </div>
-        <div className="btnContainer">
-          
-          {/*
-            It'll contain Save (green btn) and Join (Blue btn)
-          */}
+        <div className="btnContainer flex justify-around items-center flex-1">
+          <Button content='Join' variant={'blue'} size={'md'} className={"pl-[100px] pr-[100px]"}/>
+          <Button content='Save' variant={'green'} size={'md'} className={"pl-[100px] pr-[100px]"}/>
         </div>
       </div>
     </div>

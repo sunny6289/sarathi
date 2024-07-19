@@ -6,7 +6,7 @@ const EducationandJobContainer = () => {
     const [ eduTab, setEduTab ] = useState(true); // This value should be stored in the redux. So that we can change the content of list items as well as the CSS of the tabs. It is taken for testing purpose
     const [ jobTab, setJobTab ] = useState(false); // This value should be stored in the redux. So that we can change the content of list items as well as the CSS of the tabs. It is taken for testing purpose
     return (
-        <div className="w-3/4  flex-col">
+        <div className="w-3/4  flex-col mb-20">
             <div className="selectTab bg-slate-200 rounded-tr-md rounded-tl-md max-h-14 flex text-white items-center divide-x divide-slate-200 cursor-pointer text-2xl ">
                 <span onClick={()=>{
                     setEduTab(true);
