@@ -27,7 +27,7 @@ export const TEMP_EVENTS = [
         organizedBy: 'App Brewery'
     },
     {
-        id: 'event3',
+        id: 'event4',
         src: 'https://img.freepik.com/free-vector/coding-workshop-concept-illustration_114360-8172.jpg?ga=GA1.1.557918792.1704901850&semt=ais_user',
         title: 'Learn web development',
         place: 'Online',

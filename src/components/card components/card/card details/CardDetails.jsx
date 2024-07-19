@@ -6,7 +6,10 @@ const CardDetails = () => {
   const params = useParams();
   const currCard = TEMP_EVENTS.find((item) => item.id === params.id);
 
+<<<<<<< HEAD
   
+=======
+>>>>>>> 8f9c556d8ddf78d984bc91d4a7461a026dc0b4c9
   const { src, title, place, Date, Time, organizedBy } = currCard;
   return (
     <div className="min-h-screen bg-gray-100 p-6">
