@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 function Navbar() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   return (
-    <div className="flex fixed w-full items-center justify-between px-3 bg-blue-100 shadow-md mb-4">
+    <div className="flex fixed w-full items-center justify-between px-3 bg-blue-100 shadow-md mb-4 z-10">
       {/* logo section */}
       <div className="logo">
         <img src="/logo.svg" alt="" className="h-14" />

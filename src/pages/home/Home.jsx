@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, setIsLoggedIn } from "../../redux/slices/signin/authSlice";
+import ImageSlider from "../../components/image slider/ImageSlider";
+import CardContainer from "../../components/card components/card container/CardContainer";
 
 function Home() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -15,20 +17,20 @@ function Home() {
     dispatch(setIsLoggedIn(loggedIn));
   }, [dispatch]);
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
+    <div className="min-h-screen w-[100%] ">
       {isLoggedIn ? (
-        <>
-          <h1 className="text-3xl font-bold text-center">
-            Welcome to the Home Page
-          </h1>
-          <p className="text-center">You are logged in</p>
-        </>
+        <div className="flex-col ">
+          <ImageSlider/>
+          <h1 className="text-center font-sans font-medium text-4xl m-6 italic">Our Upcoming Events</h1>
+          <CardContainer/>
+        </div>
       ) : (
         <>
           <h1 className="text-3xl font-bold text-center">
             You are not logged in
           </h1>
           <p className="text-center">Please login to view this page</p>
+          {/* <Slider /> */}
         </>
       )}
     </div>
