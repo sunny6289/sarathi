@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaBars, FaTimes } from "react-icons/fa"; // Import icons
 import { closeSidebar, openSidebar } from "../../redux/slices/sidebar/sidebarReducer";
+import Button from "../reusable/Button";
 
 function Navbar() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -17,7 +18,7 @@ function Navbar() {
   };
 
   return (
-    <div className="flex fixed w-full items-center justify-between px-3 bg-blue-100 shadow-md mb-4 z-10">
+    <div className="flex fixed w-full items-center justify-between px-3 bg-blue-100 shadow-md mb-4 z-50">
       {isLoggedIn && (
         <div className="menuBtn">
           <button onClick={handleMenuClick}>
@@ -29,7 +30,9 @@ function Navbar() {
       <div className="logo">
         <img src="/logo.svg" alt="" className="h-14" />
       </div>
-      <div className="navigation flex gap-3">seek help</div>
+      <div className="navigation flex gap-3">
+        <Button content="Seek Help" size="md" />
+      </div>
     </div>
   );
 }

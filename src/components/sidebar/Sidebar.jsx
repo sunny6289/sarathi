@@ -31,6 +31,7 @@ const Sidebar = () => {
         ref={sidebarRef}
         className={`sidebar text-xl ${isOpen ? "open" : "closed"}`}
       >
+        <div></div>
         <div className="sidebar-part1">
           {navItems.map((item) => (
             <div key={item.id} className="sidebar-item">
