@@ -2,7 +2,7 @@ export const navItems = [
   {
     id: 1,
     title: "We Provide",
-    route: "/provide",
+    route: "/weProvide",
     isSecure: true, //This route is secure and requires authentication, only shown to authenticated users
   },
   {

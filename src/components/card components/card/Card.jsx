@@ -1,25 +1,31 @@
 import { useNavigate } from "react-router-dom";
-import "./Card.css";
 
 const Card = ({ card }) => {
   const { id, title, src, organizedBy, Date } = card;
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/card/${id}`);
+    navigate(`/allEvents/${id}`);
   };
 
   return (
-    <div className="card" onClick={() => handleClick()}>
-      <div className="card-image">
+    <div
+      className="w-[190px] bg-white p-2 rounded-md flex flex-col justify-between"
+      onClick={() => handleClick()}
+    >
+      <div className="hover:scale-95 transition-all">
         <img src={src} alt={title} />
       </div>
-      <div className="heading">
+      <div className="hover:cursor-pointer p-[10px] font-semibold text-[rgb(88,87,87)]">
         {" "}
         {title}
-        <div className="author">
+        <div className="text-sm font-normal">
           {" "}
-          By <span className="name">{organizedBy}</span> {Date}
+          By{" "}
+          <span className="font-semibold hover:cursor-pointer">
+            {organizedBy}
+          </span>{" "}
+          {Date}
         </div>
       </div>
     </div>

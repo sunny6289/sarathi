@@ -18,8 +18,8 @@ function Signup() {
   };
 
   return (
-    <div>
-      <div className="flex flex-col items-center justify-center h-[calc(100vh-5rem)]">
+    <div className="w-full place-content-center">
+      <div className="flex flex-col items-center justify-center">
         <h1 className="text-3xl font-bold">Signup</h1>
         <form
           onSubmit={handleSubmit(onSubmit)}
