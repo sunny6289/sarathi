@@ -3,11 +3,13 @@ import { navItems } from "../../rawData/navItems";
 import "./Sidebar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { closeSidebar } from "../../redux/slices/sidebar/sidebarReducer";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   const sidebarRef = useRef();
   const dispatch = useDispatch();
   const isOpen = useSelector((state) => state.sidebar.isOpen);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
@@ -21,7 +23,7 @@ const Sidebar = () => {
   }, [isOpen]);
   return (
     <>
-    {/* black overlay */}
+      {/* black overlay */}
       <div
         className={`overlay ${isOpen ? "visible" : ""}`}
         onClick={() => dispatch(closeSidebar())}
@@ -32,14 +34,21 @@ const Sidebar = () => {
         className={`sidebar text-xl ${isOpen ? "open" : "closed"}`}
       >
         <div></div>
-        <div className="sidebar-part1">
-          {navItems.map((item) => (
-            <div key={item.id} className="sidebar-item">
-              {item.title}
-            </div>
-          ))}
+        <div className="flex items-center flex-col gap-6">
+          {navItems.map((item) =>
+            item.isSecure ? (
+              isLoggedIn ? (
+                <div
+                  key={item.id}
+                  className="relative whitespace-nowrap cursor-pointer transition-all hover:scale-105"
+                >
+                  <NavLink to={item.route}>{item.title}</NavLink>
+                </div>
+              ) : null
+            ) : null
+          )}
         </div>
-        <div className="sidebar-part2 font-semibold">
+        <div className="font-semibold">
           <div className="sidebar-item">Become a Volunteer</div>
         </div>
       </div>

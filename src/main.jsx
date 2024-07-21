@@ -9,6 +9,9 @@ import { store } from "./redux/store/store.js";
 import Logout from "./pages/logout/Logout.jsx";
 import About from "./pages/about/About.jsx";
 import { ProtectedRoute } from "./utils/ProtectedRouter.jsx";
+import AllEvent from "./pages/home/all events/AllEvent.jsx";
+import Event from "./pages/home/all events/event/Event.jsx";
+import WeProvide from "./pages/we provide/WeProvide.jsx";
 // import CardDetails from "./components/card components/card/card details/CardDetails.jsx";
 // import WeProvide from "./pages/we provide/WeProvide.jsx";
 // Create a BrowserRouter instance
@@ -18,32 +21,36 @@ const router = createBrowserRouter([
     element: <App/>,
     children: [
       {
-        path: "/",
+        path: "",
         element: <Home />,
       },
       {
-        path: "/signin",
+        path: "allEvents",
+        element: <AllEvent />,
+      },
+      {
+        path: "allEvents/:id",
+        element: <Event />,
+      },
+      {
+        path: "signin",
         element: <Signin />,
       },
       {
-        path: "/signup",
+        path: "signup",
         element: <Signup />,
       },
       {
-        path: "/logout",
+        path: "logout",
         element: <Logout />,
       },
       {
-        path: "/about",
+        path: "about",
         element: <ProtectedRoute element={<About />} />, // ProtectedRoute to restrict access to the About page, only accessible to authenticated users
       },
       {
-        path: "/services",
-        element: <ProtectedRoute element={<div>Services</div>} />, // ProtectedRoute to restrict access to the Services page, only accessible to authenticated users
-      },
-      {
-        path: "/contact",
-        element: <ProtectedRoute element={<div>Contact</div>} />, // ProtectedRoute to restrict access to the Contact page, only accessible to authenticated users
+        path: "weProvide",
+        element: <ProtectedRoute element={<WeProvide />} />, // ProtectedRoute to restrict access to the WeProvide page, only accessible to authenticated users
       },
       { path: "*", element: <div>Not Found</div> },
     ],
