@@ -24,7 +24,7 @@ const WeProvide = () => {
             onClick={() => navigate(-1)}
           />
           <Button
-            className={"text-neutral-700 bg-slate-200"}
+            className={"text-neutral-800 bg-slate-200"}
             content={
               <>
                 {filterContent ? (
@@ -41,7 +41,7 @@ const WeProvide = () => {
         {filterContent ? (
           <div className="filterContent w-[70%] flex items-center justify-around">
             <Button
-              className={"bg-slate-200 text-neutral-700"}
+              className={"text-neutral-700"}
               content={
                 <>
                   <span className="text-lg font-semibold">Job Type</span>
@@ -50,7 +50,7 @@ const WeProvide = () => {
               }
             />
             <Button
-              className={"bg-slate-200 text-neutral-700"}
+              className={"text-neutral-700"}
               content={
                 <>
                   <span className="text-lg font-semibold">Domain</span>
@@ -59,7 +59,7 @@ const WeProvide = () => {
               }
             />
             <Button
-              className={"bg-slate-200 text-neutral-700"}
+              className={"text-neutral-700"}
               content={
                 <>
                   <span className="text-lg font-semibold">Sort</span>
