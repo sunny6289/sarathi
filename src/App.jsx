@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearToast } from "./redux/slices/toastSlice";
 import Loader from "./components/Loader";
 import Sidebar from "./components/sidebar/Sidebar";
+import Button from "./components/reusable/Button";
 
 function App() {
   const responseToast = useSelector((state) => state.toast.responseToast);
@@ -41,7 +42,7 @@ function App() {
       <Navbar />
 
       <Sidebar />
-      <div className="flex pt-[55px] min-h-screen">
+      <div className="flex pt-[55px] min-h-screen flex-col">
         <Outlet />
       </div>
       <Footer />

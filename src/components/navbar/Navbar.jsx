@@ -1,13 +1,18 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaBars, FaTimes } from "react-icons/fa"; // Import icons
-import { closeSidebar, openSidebar } from "../../redux/slices/sidebar/sidebarReducer";
+import {
+  closeSidebar,
+  openSidebar,
+} from "../../redux/slices/sidebar/sidebarReducer";
 import Button from "../reusable/Button";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const isSidebarOpen = useSelector((state) => state.sidebar.isOpen);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleMenuClick = () => {
     if (isSidebarOpen) {
@@ -31,7 +36,13 @@ function Navbar() {
         <img src="/logo.svg" alt="" className="h-14" />
       </div>
       <div className="navigation flex gap-3">
-        <Button content="Seek Help" size="md" />
+        <Button
+          content="Seek Help"
+          size="md"
+          onClick={() => {
+            navigate("/seek help");
+          }}
+        />
       </div>
     </div>
   );

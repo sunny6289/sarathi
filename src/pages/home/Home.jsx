@@ -31,15 +31,17 @@ function Home() {
 
   return (
     <div className="min-h-screen w-full flex flex-col items-center bg-gray-100">
-      {!isLoggedIn && <div
-        className="w-full h-[70vh] bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: `url(poverty.jpg)` }}
-        data-aos="fade-in"
-      >
-        <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold bg-black bg-opacity-50 p-4 rounded shadow-lg">
-          No Poverty Initiative
-        </h1>
-      </div>}
+      {!isLoggedIn && (
+        <div
+          className="w-full h-[70vh] bg-cover bg-center flex items-center justify-center"
+          style={{ backgroundImage: `url(poverty.jpg)` }}
+          data-aos="fade-in"
+        >
+          <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold bg-black bg-opacity-50 p-4 rounded shadow-lg">
+            No Poverty Initiative
+          </h1>
+        </div>
+      )}
 
       <div className="w-full flex flex-col items-center justify-center gap-6">
         {isLoggedIn ? (

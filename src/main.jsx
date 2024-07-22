@@ -12,6 +12,7 @@ import { ProtectedRoute } from "./utils/ProtectedRouter.jsx";
 import AllEvent from "./pages/home/all events/AllEvent.jsx";
 import Event from "./pages/home/all events/event/Event.jsx";
 import WeProvide from "./pages/we provide/WeProvide.jsx";
+import SeekhelpPage from "./pages/seek help/SeekhelpPage.jsx";
 // import CardDetails from "./components/card components/card/card details/CardDetails.jsx";
 // import WeProvide from "./pages/we provide/WeProvide.jsx";
 // Create a BrowserRouter instance
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "weProvide",
         element: <ProtectedRoute element={<WeProvide />} />, // ProtectedRoute to restrict access to the WeProvide page, only accessible to authenticated users
+      },
+      {
+        path: "seek help",
+        element: <ProtectedRoute element={<SeekhelpPage />} />, // ProtectedRoute to restrict access to the SeekHelp page, only accessible to authenticated users
       },
       { path: "*", element: <div>Not Found</div> },
     ],
