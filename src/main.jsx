@@ -12,6 +12,7 @@ import { ProtectedRoute } from "./utils/ProtectedRouter.jsx";
 import AllEvent from "./pages/home/all events/AllEvent.jsx";
 import Event from "./pages/home/all events/event/Event.jsx";
 import WeProvide from "./pages/we provide/WeProvide.jsx";
+// import Emergency from "./pages/emergency/Emergency.jsx";
 // import CardDetails from "./components/card components/card/card details/CardDetails.jsx";
 // import WeProvide from "./pages/we provide/WeProvide.jsx";
 // Create a BrowserRouter instance
