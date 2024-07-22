@@ -33,7 +33,7 @@ function Button({ content, variant, size, className, ...props }) {
   if (isAccept || isReject) {
     return (
       <button
-        className= {`${buttonVariant({ variant, size, className })}`}
+        className= {`${className} ${buttonVariant({ variant, size })}`}
         {...props}
       >
         <span
@@ -48,7 +48,7 @@ function Button({ content, variant, size, className, ...props }) {
 
   return (
     <button
-      className={`${buttonVariant({ variant, size, className })}`}
+      className={`${className} ${buttonVariant({ variant, size })}`} 
       {...props}
     >
       {content}
