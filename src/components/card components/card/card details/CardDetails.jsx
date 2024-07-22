@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { TEMP_EVENTS } from "../../../../rawData/tempEvents";
 import Button from "../../../reusable/Button";
+import { FaAngleLeft } from "react-icons/fa";
 
 const CardDetails = () => {
   const params = useParams();
@@ -15,6 +16,18 @@ const CardDetails = () => {
   */
   return (
     <div className="min-h-screen bg-gray-100 p-3">
+      <Button
+        content={
+          <>
+            <FaAngleLeft />
+            Back
+          </>
+        }
+        variant="blue"
+        size="md"
+        className="mb-2"
+        onClick={() => history.back()}
+      />
       <div className="bg-white shadow-lg rounded-lg overflow-hidden ">
         <div className="relative">
           <img src={src} alt="pic" className="w-full h-64 object-cover" />
@@ -27,10 +40,19 @@ const CardDetails = () => {
       <div className="p-3">
         <div className="flex justify-between items-center mb-2">
           <div className="text-lg">
-            <p className="text-gray-700"><span className='text-lg font-semibold'>Date:</span> {Date}</p>
-            <p className="text-gray-700"><span className='text-lg font-semibold'>Place:</span> {place}</p>
-            <p className="text-gray-700"><span className='text-lg font-semibold'>Time:</span> {Time} </p>
-            <p className="text-gray-700"><span className='text-lg font-semibold'>Organized By:</span> {organizedBy} </p>
+            <p className="text-gray-700">
+              <span className="text-lg font-semibold">Date:</span> {Date}
+            </p>
+            <p className="text-gray-700">
+              <span className="text-lg font-semibold">Place:</span> {place}
+            </p>
+            <p className="text-gray-700">
+              <span className="text-lg font-semibold">Time:</span> {Time}{" "}
+            </p>
+            <p className="text-gray-700">
+              <span className="text-lg font-semibold">Organized By:</span>{" "}
+              {organizedBy}{" "}
+            </p>
           </div>
         </div>
       </div>
@@ -48,8 +70,18 @@ const CardDetails = () => {
           </p>
         </div>
         <div className="btnContainer flex justify-around items-center flex-1">
-          <Button content='Join' variant={'blue'} size={'md'} className={"pl-[100px] pr-[100px]"}/>
-          <Button content='Save' variant={'green'} size={'md'} className={"pl-[100px] pr-[100px]"}/>
+          <Button
+            content="Join"
+            variant={"blue"}
+            size={"md"}
+            className={"pl-[100px] pr-[100px]"}
+          />
+          <Button
+            content="Save"
+            variant={"green"}
+            size={"md"}
+            className={"pl-[100px] pr-[100px]"}
+          />
         </div>
       </div>
     </div>

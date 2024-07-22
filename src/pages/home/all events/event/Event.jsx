@@ -1,13 +1,12 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React from "react";
+import CardDetails from "../../../../components/card components/card/card details/CardDetails";
 
 const Event = () => {
-    const {id} = useParams();
-    return (
-        <div>
-            Event {id}
-        </div>
-    );
-}
+  return (
+    <>
+      <CardDetails />
+    </>
+  );
+};
 
 export default Event;
