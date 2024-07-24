@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import Button from "../reusable/Button";
+import { FaAngleLeft } from "react-icons/fa";
 
 const AskDonation = () => {
   const [banner, setBanner] = useState("https://via.placeholder.com/800x200");

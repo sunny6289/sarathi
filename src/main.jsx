@@ -13,6 +13,8 @@ import AllEvent from "./pages/home/all events/AllEvent.jsx";
 import Event from "./pages/home/all events/event/Event.jsx";
 import WeProvide from "./pages/we provide/WeProvide.jsx";
 import SeekhelpPage from "./pages/seek help/SeekhelpPage.jsx";
+import AskDonationPage from "./pages/askDonation/AskDonationPage.jsx";
+import Emergency from "./pages/emergency/Emergency.jsx";
 // import CardDetails from "./components/card components/card/card details/CardDetails.jsx";
 // import WeProvide from "./pages/we provide/WeProvide.jsx";
 // Create a BrowserRouter instance
@@ -56,6 +58,14 @@ const router = createBrowserRouter([
       {
         path: "seek help",
         element: <ProtectedRoute element={<SeekhelpPage />} />, // ProtectedRoute to restrict access to the SeekHelp page, only accessible to authenticated users
+      },
+      {
+        path: "ask donations",
+        element: <ProtectedRoute element={<AskDonationPage />} />, // ProtectedRoute to restrict access to the AskDonations page, only accessible to authenticated users
+      },
+      {
+        path: "emergency",
+        element: <ProtectedRoute element={<Emergency />} />, // ProtectedRoute to restrict access to the Emergency page, only accessible to authenticated users
       },
       { path: "*", element: <div>Not Found</div> },
     ],
