@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 
-function Filter({ label, options }) {
+function Filter({ label, options, required }) {
   const filterRef = useRef(null);
   const [isOpenFilter, setIsOpenFilter] = useState(false);
 
@@ -30,32 +30,33 @@ function Filter({ label, options }) {
   const handleCheckboxChange = (category, option) => {
     setSelectedOptions((prevSelectedOptions) => {
       const isSelected = prevSelectedOptions[category].includes(option);
-      if (isSelected) {
-        return {
-          ...prevSelectedOptions,
-          [category]: prevSelectedOptions[category].filter(
-            (opt) => opt !== option
-          ),
-        };
-      } else {
-        return {
-          ...prevSelectedOptions,
-          [category]: [...prevSelectedOptions[category], option],
-        };
-      }
+      const newSelectedOptions = isSelected
+        ? {
+            ...prevSelectedOptions,
+            [category]: prevSelectedOptions[category].filter(
+              (opt) => opt !== option
+            ),
+          }
+        : {
+            ...prevSelectedOptions,
+            [category]: [...prevSelectedOptions[category], option],
+          };
+      return newSelectedOptions;
     });
   };
   return (
     <>
       <div ref={filterRef}>
-        <label className="block text-sm font-medium mb-1">
-          {label} <span className="text-red-500">*</span>
-        </label>
+        {required === "true" ? (
+          <label className="block text-sm font-medium mb-1">
+            {label} <span className="text-red-500">*</span>
+          </label>
+        ) : null}
         <div
           className="border border-neutral-200 p-[12px] flex justify-between items-center"
           onClick={() => setIsOpenFilter(!isOpenFilter)}
         >
-          Select an option{" "}
+          {label}{" "}
           {!isOpenFilter ? (
             <FaAngleDown className="text-2xl" />
           ) : (
@@ -63,7 +64,7 @@ function Filter({ label, options }) {
           )}{" "}
         </div>
         {isOpenFilter && (
-          <div className="border border-neutral-200 p-[12px] absolute bg-white flex flex-col gap-6 shadow-2xl rounded-md">
+          <div className="border border-neutral-200 p-[12px] bg-white flex flex-col gap-6 shadow-2xl rounded-md">
             {options.map((optionObj) => {
               const category = Object.keys(optionObj)[0];
               const optionsList = optionObj[category];

@@ -19,7 +19,7 @@ import SeekhelpPage from "./pages/seek help/SeekhelpPage.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <App />,
     children: [
       {
         path: "",
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
       },
       { path: "*", element: <div>Not Found</div> },
     ],
-  }
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

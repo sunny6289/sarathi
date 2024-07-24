@@ -1,10 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import { TEMP_EMERGENCIES } from "../../rawData/emergencies";
+import Button from "../reusable/Button";
+import { FaAngleLeft } from "react-icons/fa";
+import FilterEmergencies from "../reusable/FilterEmergencies";
 
 const Emergencies = () => {
+  const options = [{ By: ["High", "Moderate", "Critical"] }];
+
+  const initialSelectedOptions = options.reduce((acc, option) => {
+    const category = Object.keys(option)[0];
+    acc[category] = [];
+    return acc;
+  }, {});
+
+  const [selectedOptions, setSelectedOptions] = useState(initialSelectedOptions);
+
+  const handleFilterChange = (newSelectedOptions) => {
+    setSelectedOptions(newSelectedOptions);
+  };
+
+  const filteredEmergencies = TEMP_EMERGENCIES.filter((emer) => {
+    const categorySelectedOptions = selectedOptions["By"] || [];
+    return (
+      categorySelectedOptions.length === 0 ||
+      categorySelectedOptions.includes(emer.severity)
+    );
+  });
+
   return (
-    <div className="p-4">
-      {TEMP_EMERGENCIES.map((emer) => (
+    <div className="p-4 overflow-x-hidden relative">
+      <div className="flex items-center justify-between">
+        <Button
+          content={
+            <>
+              <FaAngleLeft />
+              Back
+            </>
+          }
+          variant="blue"
+          size="md"
+          onClick={() => history.back()}
+        />
+
+        <FilterEmergencies
+          label="Sort"
+          options={options}
+          required="false"
+          onChange={handleFilterChange}
+        />
+      </div>
+      {filteredEmergencies.map((emer) => (
         <div
           key={emer.id}
           className="w-full p-4 mb-4 bg-white rounded-lg shadow-md"
