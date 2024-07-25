@@ -1,7 +1,7 @@
 import React from 'react'
 import AskDonation from '../../components/askDonation/AskDonation'
 
-const askDonation = () => {
+const AskDonationPage = () => {
   return (
     <div>
         <AskDonation />
@@ -9,4 +9,4 @@ const askDonation = () => {
   )
 }
 
-export default askDonation
+export default AskDonationPage
