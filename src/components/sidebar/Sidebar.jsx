@@ -49,7 +49,8 @@ const Sidebar = () => {
           )}
         </div>
         <div className="font-semibold">
-          <div className="sidebar-item">Become a Volunteer</div>
+          <NavLink className="sidebar-item" to={'/become-volunteer'}>Become a Volunteer</NavLink>
+          {/* <div ></div> */}
         </div>
       </div>
     </>

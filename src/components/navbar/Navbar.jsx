@@ -33,7 +33,7 @@ function Navbar() {
       )}
       {/* logo section */}
       <div className="logo">
-        <img src="/logo.svg" alt="" className="h-14" />
+        <img onClick={()=> navigate('/')} src="/logo.svg" alt="" className="h-14 cursor-pointer" />
       </div>
       <div className="navigation flex gap-3">
         <Button

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Profiler } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
@@ -15,6 +15,7 @@ import WeProvide from "./pages/we provide/WeProvide.jsx";
 import SeekhelpPage from "./pages/seek help/SeekhelpPage.jsx";
 import AskDonationPage from "./pages/askDonation/AskDonationPage.jsx";
 import Emergency from "./pages/emergency/Emergency.jsx";
+import Profile from "./pages/profile/Profile.jsx";
 // import CardDetails from "./components/card components/card/card details/CardDetails.jsx";
 // import WeProvide from "./pages/we provide/WeProvide.jsx";
 // Create a BrowserRouter instance
@@ -60,12 +61,16 @@ const router = createBrowserRouter([
         element: <ProtectedRoute element={<SeekhelpPage />} />, // ProtectedRoute to restrict access to the SeekHelp page, only accessible to authenticated users
       },
       {
-        path: "ask donations",
+        path: "donation",
         element: <ProtectedRoute element={<AskDonationPage />} />, // ProtectedRoute to restrict access to the AskDonations page, only accessible to authenticated users
       },
       {
         path: "emergency",
         element: <ProtectedRoute element={<Emergency />} />, // ProtectedRoute to restrict access to the Emergency page, only accessible to authenticated users
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
       { path: "*", element: <div>Not Found</div> },
     ],
