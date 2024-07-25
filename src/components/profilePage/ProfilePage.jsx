@@ -63,7 +63,7 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white shadow-md rounded-lg p-6">
+    <div className="max-w-md mx-auto bg-white shadow-md rounded-lg p-6 w-[100%]">
       <Button
         content={
           <>
