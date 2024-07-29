@@ -4,6 +4,7 @@ import "./Sidebar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { closeSidebar } from "../../redux/slices/sidebar/sidebarReducer";
 import { NavLink } from "react-router-dom";
+import { FaPowerOff } from "react-icons/fa6";
 
 const Sidebar = () => {
   const sidebarRef = useRef();
@@ -49,7 +50,7 @@ const Sidebar = () => {
           )}
         </div>
         <div className="font-semibold">
-          <NavLink className="sidebar-item" to={'/become-volunteer'}>Become a Volunteer</NavLink>
+          <NavLink onClick={()=>dispatch(closeSidebar())} className="sidebar-item text-red-600 flex items-center gap-2" to={'/logout'}><span>Logout</span><FaPowerOff/></NavLink>
           {/* <div ></div> */}
         </div>
       </div>

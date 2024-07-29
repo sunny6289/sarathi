@@ -23,7 +23,7 @@ const CardDetails = () => {
             Back
           </>
         }
-        variant="blue"
+        variant="gray"
         size="md"
         className="mb-2"
         onClick={() => history.back()}

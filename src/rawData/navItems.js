@@ -7,8 +7,8 @@ export const navItems = [
   },
   {
     id: 2,
-    title: "Ask Donation",
-    route: "/donation",
+    title: "Create New Event",
+    route: "/create new event",
     isSecure: true, //This route is secure and requires authentication, only shown to authenticated users
   },
   {

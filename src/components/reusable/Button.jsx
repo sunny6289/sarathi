@@ -9,6 +9,7 @@ const buttonVariant = cva(
         red: "bg-red-500 text-white",
         green: "bg-green-400 text-white",
         blue: "bg-blue-400 text-white", //this is to reject
+        gray: "bg-slate-400 text-white", //this is to reject
       },
       size: {
         sm: "text-[14px] font-[400]",
@@ -33,7 +34,7 @@ function Button({ content, variant, size, className, ...props }) {
   if (isAccept || isReject) {
     return (
       <button
-        className= {`${className} ${buttonVariant({ variant, size })}`}
+        className= {`${buttonVariant({ variant, size })} ${className} `}
         {...props}
       >
         <span
