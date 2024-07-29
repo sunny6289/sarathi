@@ -63,151 +63,140 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white shadow-md rounded-lg p-6 w-[100%]">
-      <Button
-        content={
-          <>
-            <FaAngleLeft />
-            Back
-          </>
-        }
-        variant="gray"
-        size="md"
-        onClick={() => history.back()}
-      />
-      <div className="flex flex-col items-center">
-        <div
-          {...getRootProps()}
-          className="w-32 h-32 rounded-full overflow-hidden mb-4 cursor-pointer"
-        >
-          <input {...getInputProps()} />
-          <img
-            className="w-full h-full object-cover"
-            src={profileData.profilePicture}
-            alt="Profile"
-          />
+    <div className="container flex flex-col items-center p-4 mx-auto space-y-8">
+      <div className="w-full flex justify-start">
+        <Button
+          content={
+            <>
+              <FaAngleLeft className="mr-2" />
+              Back
+            </>
+          }
+          variant="gray"
+          size="md"
+          onClick={() => history.back()}
+        />
+      </div>
+      <div className="max-w-lg w-full bg-white shadow-lg rounded-lg p-6">
+        <div className="flex flex-col items-center">
+          <div
+            {...getRootProps()}
+            className="w-32 h-32 rounded-full overflow-hidden mb-4 cursor-pointer border-2 border-gray-300"
+          >
+            <input {...getInputProps()} />
+            <img
+              className="w-full h-full object-cover"
+              src={profileData.profilePicture}
+              alt="Profile"
+            />
+          </div>
+
+          {isEditing ? (
+            <div className="w-full">
+              <div className="mb-4">
+                <label className="block text-gray-700 font-medium">
+                  Name:
+                  <input
+                    type="text"
+                    name="name"
+                    value={tempProfileData.name}
+                    onChange={handleChange}
+                    className="mt-1 block w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-300"
+                  />
+                </label>
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700 font-medium">
+                  Date of Birth:
+                  <input
+                    type="date"
+                    name="dob"
+                    value={tempProfileData.dob}
+                    onChange={handleChange}
+                    className="mt-1 block w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-300"
+                  />
+                </label>
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700 font-medium">
+                  Gender:
+                  <select
+                    name="gender"
+                    value={tempProfileData.gender}
+                    onChange={handleChange}
+                    className="mt-1 block w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-300"
+                  >
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </label>
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700 font-medium">
+                  Email:
+                  <input
+                    type="email"
+                    name="email"
+                    value={tempProfileData.email}
+                    onChange={handleChange}
+                    className="mt-1 block w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-300"
+                  />
+                </label>
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700 font-medium">
+                  Phone:
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={tempProfileData.phone}
+                    onChange={handleChange}
+                    className="mt-1 block w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-300"
+                  />
+                </label>
+              </div>
+              <div className="flex justify-between mt-6">
+                <Button
+                  content="Save"
+                  variant="green"
+                  size="md"
+                  onClick={handleSaveClick}
+                />
+                <Button
+                  content="Cancel"
+                  variant="red"
+                  size="md"
+                  onClick={handleCancelClick}
+                />
+              </div>
+            </div>
+          ) : (
+            <div className="w-full text-left">
+              <p className="text-gray-600 mb-2">
+                <strong>Name:</strong> {profileData.name}
+              </p>
+              <p className="text-gray-600 mb-2">
+                <strong>Date of Birth:</strong> {profileData.dob}
+              </p>
+              <p className="text-gray-600 mb-2">
+                <strong>Gender:</strong> {profileData.gender}
+              </p>
+              <p className="text-gray-600 mb-2">
+                <strong>Email:</strong> {profileData.email}
+              </p>
+              <p className="text-gray-600 mb-2">
+                <strong>Phone:</strong> {profileData.phone}
+              </p>
+              <button
+                onClick={handleEditClick}
+                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring focus:border-blue-300"
+              >
+                Edit
+              </button>
+            </div>
+          )}
         </div>
-
-        {isEditing ? (
-          <div className="w-full text-left">
-            <div className="mb-2">
-              <label className="block text-gray-700">
-                Name:
-                <input
-                  type="text"
-                  name="name"
-                  value={tempProfileData.name}
-                  onChange={handleChange}
-                  className="mt-1 block w-full border rounded px-2 py-1"
-                />
-              </label>
-            </div>
-            <div className="mb-2">
-              <label className="block text-gray-700">
-                Date of Birth:
-                <input
-                  type="date"
-                  name="dob"
-                  value={tempProfileData.dob}
-                  onChange={handleChange}
-                  className="mt-1 block w-full border rounded px-2 py-1"
-                />
-              </label>
-            </div>
-            <div className="mb-2">
-              <label className="block text-gray-700">
-                Gender:
-                <select
-                  name="gender"
-                  value={tempProfileData.gender}
-                  onChange={handleChange}
-                  className="mt-1 block w-full border rounded px-2 py-1"
-                >
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Other">Other</option>
-                </select>
-              </label>
-            </div>
-            <div className="mb-2">
-              <label className="block text-gray-700">
-                Email:
-                <input
-                  type="email"
-                  name="email"
-                  value={tempProfileData.email}
-                  onChange={handleChange}
-                  className="mt-1 block w-full border rounded px-2 py-1"
-                />
-              </label>
-            </div>
-            <div className="mb-2">
-              <label className="block text-gray-700">
-                Phone:
-                <input
-                  type="tel"
-                  name="phone"
-                  value={tempProfileData.phone}
-                  onChange={handleChange}
-                  className="mt-1 block w-full border rounded px-2 py-1"
-                />
-              </label>
-            </div>
-            <div className="flex justify-between mt-4">
-              {/* <button
-                onClick={handleSaveClick}
-                className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700"
-              >
-                Save
-              </button> */}
-              <Button
-                content="Save"
-                variant="green"
-                size="md"
-                onClick={handleSaveClick}
-                className="rounded hover:bg-green-700"
-              />
-
-              {/* <button
-                onClick={handleCancelClick}
-                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700"
-              >
-                Cancel
-              </button> */}
-              <Button
-                content="Cancel"
-                variant="red"
-                size="md"
-                onClick={handleCancelClick}
-                className="rounded hover:bg-red-700"
-              />
-            </div>
-          </div>
-        ) : (
-          <div className="w-full text-left">
-            <p className="text-gray-600 mb-2">
-              <strong>Name:</strong> {profileData.name}
-            </p>
-            <p className="text-gray-600 mb-2">
-              <strong>Date of Birth:</strong> {profileData.dob}
-            </p>
-            <p className="text-gray-600 mb-2">
-              <strong>Gender:</strong> {profileData.gender}
-            </p>
-            <p className="text-gray-600 mb-2">
-              <strong>Email:</strong> {profileData.email}
-            </p>
-            <p className="text-gray-600">
-              <strong>Phone:</strong> {profileData.phone}
-            </p>
-            <button
-              onClick={handleEditClick}
-              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
-            >
-              Edit
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );

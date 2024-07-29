@@ -6,10 +6,10 @@ const buttonVariant = cva(
   {
     variants: {
       variant: {
-        red: "bg-red-500 text-white",
-        green: "bg-green-400 text-white",
-        blue: "bg-blue-400 text-white", //this is to reject
-        gray: "bg-slate-400 text-white", //this is to reject
+        red: "bg-red-500 text-neutral-100",
+        green: "bg-green-400 text-neutral-100",
+        blue: "bg-blue-400 text-neutral-100", //this is to reject
+        gray: "bg-slate-400 text-neutral-100", //this is to reject
       },
       size: {
         sm: "text-[14px] font-[400]",
