@@ -13,24 +13,38 @@ function About() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-6">
       <div className="max-w-4xl w-full bg-white shadow-md rounded-lg p-6">
-        <h1 className="text-4xl font-bold mb-4 text-center">About No Poverty</h1>
+        <h1 className="text-4xl font-bold mb-4 text-center">
+          About No Poverty
+        </h1>
         <p className="text-lg text-gray-700 mb-4">
-          No Poverty is dedicated to eradicating poverty by empowering individuals and communities through sustainable programs and initiatives. Our mission is to create a world where everyone has the opportunity to thrive, free from the constraints of poverty.
+          No Poverty is dedicated to eradicating poverty by empowering
+          individuals and communities through sustainable programs and
+          initiatives. Our mission is to create a world where everyone has the
+          opportunity to thrive, free from the constraints of poverty.
         </p>
         <h2 className="text-2xl font-semibold mb-2">Our Vision</h2>
         <p className="text-lg text-gray-700 mb-4">
-          We envision a world where poverty is a thing of the past, and every individual has access to the resources and opportunities they need to lead a dignified and prosperous life.
+          We envision a world where poverty is a thing of the past, and every
+          individual has access to the resources and opportunities they need to
+          lead a dignified and prosperous life.
         </p>
         <h2 className="text-2xl font-semibold mb-2">Our Goals</h2>
         <ul className="list-disc list-inside text-lg text-gray-700 mb-4">
-          <li>Provide education and skills training to underprivileged communities.</li>
+          <li>
+            Provide education and skills training to underprivileged
+            communities.
+          </li>
           <li>Promote sustainable economic development and job creation.</li>
           <li>Ensure access to basic healthcare and nutrition.</li>
-          <li>Advocate for policies that address the root causes of poverty.</li>
+          <li>
+            Advocate for policies that address the root causes of poverty.
+          </li>
         </ul>
         <h2 className="text-2xl font-semibold mb-2">Get Involved</h2>
         <p className="text-lg text-gray-700 mb-4">
-          Join us in our mission to eradicate poverty. Whether through volunteering, donating, or spreading awareness, every effort counts. Together, we can make a difference.
+          Join us in our mission to eradicate poverty. Whether through
+          volunteering, donating, or spreading awareness, every effort counts.
+          Together, we can make a difference.
         </p>
       </div>
     </div>
@@ -110,54 +124,76 @@ function Home() {
         </div>
       )}
 
-      <div className="w-full flex flex-col items-center mt-12">
-        <div className="flex flex-col lg:flex-row w-full">
-          <div className="w-full lg:w-1/2 p-6" data-aos="fade-right">
-            <img
-              src="garibs3.png"
-              alt="Image 1"
-              className="w-full h-auto rounded-lg shadow-lg"
-            />
-          </div>
-          <div className="w-full lg:w-1/2 p-6 flex items-center" data-aos="fade-left">
-            <p className="text-lg text-gray-700">
-              Our mission is to eradicate poverty through various initiatives that empower individuals and communities. We believe in a world where everyone has the opportunity to thrive.
-            </p>
-          </div>
-        </div>
+      {!isLoggedIn && (
+        <>
+          <div className="w-full flex flex-col items-center mt-12">
+            <div className="flex flex-col lg:flex-row w-full">
+              <div className="w-full lg:w-1/2 p-6" data-aos="fade-right">
+                <img
+                  src="garibs3.png"
+                  alt="Image 1"
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+              </div>
+              <div
+                className="w-full lg:w-1/2 p-6 flex items-center"
+                data-aos="fade-left"
+              >
+                <p className="text-lg text-gray-700">
+                  Our mission is to eradicate poverty through various
+                  initiatives that empower individuals and communities. We
+                  believe in a world where everyone has the opportunity to
+                  thrive.
+                </p>
+              </div>
+            </div>
 
-        <div className="flex flex-col lg:flex-row w-full mt-12">
-          <div className="w-full lg:w-1/2 p-6 flex items-center order-2 lg:order-1" data-aos="fade-right">
-            <p className="text-lg text-gray-700">
-              We focus on providing education and skills training, promoting sustainable economic development, and ensuring access to basic healthcare and nutrition.
-            </p>
-          </div>
-          <div className="w-full lg:w-1/2 p-6 order-1 lg:order-2" data-aos="fade-left">
-            <img
-              src="/garibs1.png"
-              alt="Image 2"
-              className="w-full h-auto rounded-lg shadow-lg"
-            />
-          </div>
-        </div>
+            <div className="flex flex-col lg:flex-row w-full mt-12">
+              <div
+                className="w-full lg:w-1/2 p-6 flex items-center order-2 lg:order-1"
+                data-aos="fade-right"
+              >
+                <p className="text-lg text-gray-700">
+                  We focus on providing education and skills training, promoting
+                  sustainable economic development, and ensuring access to basic
+                  healthcare and nutrition.
+                </p>
+              </div>
+              <div
+                className="w-full lg:w-1/2 p-6 order-1 lg:order-2"
+                data-aos="fade-left"
+              >
+                <img
+                  src="/garibs1.png"
+                  alt="Image 2"
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+              </div>
+            </div>
 
-        <div className="flex flex-col lg:flex-row w-full mt-12">
-          <div className="w-full lg:w-1/2 p-6" data-aos="fade-right">
-            <img
-              src="garibs2.png"
-              alt="Image 3"
-              className="w-full h-auto rounded-lg shadow-lg"
-            />
+            <div className="flex flex-col lg:flex-row w-full mt-12">
+              <div className="w-full lg:w-1/2 p-6" data-aos="fade-right">
+                <img
+                  src="garibs2.png"
+                  alt="Image 3"
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+              </div>
+              <div
+                className="w-full lg:w-1/2 p-6 flex items-center"
+                data-aos="fade-left"
+              >
+                <p className="text-lg text-gray-700">
+                  Join us in our mission. Whether through volunteering,
+                  donating, or spreading awareness, every effort counts.
+                  Together, we can make a difference.
+                </p>
+              </div>
+            </div>
           </div>
-          <div className="w-full lg:w-1/2 p-6 flex items-center" data-aos="fade-left">
-            <p className="text-lg text-gray-700">
-              Join us in our mission. Whether through volunteering, donating, or spreading awareness, every effort counts. Together, we can make a difference.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <About />
+          <About />
+        </>
+      )}
     </div>
   );
 }
