@@ -71,7 +71,7 @@ const ProfilePage = () => {
             Back
           </>
         }
-        variant="blue"
+        variant="gray"
         size="md"
         onClick={() => history.back()}
       />

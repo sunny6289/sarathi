@@ -61,7 +61,7 @@ const router = createBrowserRouter([
         element: <ProtectedRoute element={<SeekhelpPage />} />, // ProtectedRoute to restrict access to the SeekHelp page, only accessible to authenticated users
       },
       {
-        path: "donation",
+        path: "create new event",
         element: <ProtectedRoute element={<AskDonationPage />} />, // ProtectedRoute to restrict access to the AskDonations page, only accessible to authenticated users
       },
       {

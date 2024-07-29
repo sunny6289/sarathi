@@ -20,11 +20,13 @@ const WeProvide = () => {
                 <span className="text-lg font-semibold">back</span>
               </>
             }
-            className={"bg-slate-400"}
+            variant={'gray'}
+            size={'md'}
             onClick={() => navigate(-1)}
           />
           <Button
-            className={"text-neutral-800 bg-slate-200"}
+            variant={'gray'}
+            size={'md'}
             content={
               <>
                 {filterContent ? (
@@ -41,7 +43,8 @@ const WeProvide = () => {
         {filterContent ? (
           <div className="filterContent w-[70%] flex items-center justify-around">
             <Button
-              className={"text-neutral-700"}
+              className={"bg-slate-300"}
+              size={'md'}
               content={
                 <>
                   <span className="text-lg font-semibold">Job Type</span>
@@ -50,7 +53,8 @@ const WeProvide = () => {
               }
             />
             <Button
-              className={"text-neutral-700"}
+              className={"bg-slate-300"}
+              size={'md'}
               content={
                 <>
                   <span className="text-lg font-semibold">Domain</span>
@@ -59,7 +63,8 @@ const WeProvide = () => {
               }
             />
             <Button
-              className={"text-neutral-700"}
+              className={"bg-slate-300"}
+              size={'md'}
               content={
                 <>
                   <span className="text-lg font-semibold">Sort</span>

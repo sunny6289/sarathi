@@ -6,17 +6,15 @@ import Card from "../card/Card";
 const CardContainer = () => {
     const navigate = useNavigate();
   return (
-    <div className="bg-slate-100 flex justify-between cursor-pointer">
+    <div className="bg-slate-100 flex justify-between">
       <div className="cards flex gap-6 p-6 flex-wrap">
         {TEMP_EVENTS.map((card) => (
           <Card key={card.id} card={card} />
         ))}
       </div>
-      <Button content={"See All"} size={"md"} className={"text-nowrap h-min"} onClick={() => {
-        navigate("/allEvents");
-      }} />
+      <Button onClick={()=> navigate('/allEvents')} variant={'gray'} size={'md'} content={'See All'}></Button>
     </div>
-  );
-};
+  )
+}
 
 export default CardContainer;

@@ -10,7 +10,7 @@ const Card = ({ card }) => {
 
   return (
     <div
-      className="w-[190px] bg-white p-2 rounded-md flex flex-col justify-between"
+      className="w-[190px] bg-white p-2 rounded-md flex flex-col justify-between cursor-pointer"
       onClick={() => handleClick()}
     >
       <div className="hover:scale-95 transition-all">

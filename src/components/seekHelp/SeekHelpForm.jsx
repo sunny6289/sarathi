@@ -156,7 +156,7 @@ const SeekHelpForm = () => {
           )}
         </div>
 
-        {/* Emergency Contact Information */}
+        {/* Emergency Contact Information
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div>
             <label className="block text-sm font-medium">
@@ -204,7 +204,7 @@ const SeekHelpForm = () => {
               Emergency Contact Number is required
             </p>
           )}
-        </div>
+        </div> */}
 
         {/* Urgency Level */}
         <div>
@@ -216,9 +216,9 @@ const SeekHelpForm = () => {
             className="mt-1 block w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">Select an option</option>
-            <option value="Immediate">Immediate</option>
-            <option value="24 Hours">Within 24 Hours</option>
-            <option value="48 Hours">Within 48 Hours</option>
+            <option value="Moderate">Moderate</option>
+            <option value="High">High</option>
+            <option value="Critical">Critical</option>
           </select>
           {errors.urgency && (
             <p className="text-red-500 text-sm">Urgency level is required</p>
