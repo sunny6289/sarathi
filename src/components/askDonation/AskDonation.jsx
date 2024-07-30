@@ -4,36 +4,31 @@ import Button from "../reusable/Button";
 import { FaAngleLeft } from "react-icons/fa";
 
 const AskDonation = () => {
-  const [banner, setBanner] = useState("https://via.placeholder.com/800x200");
+  const [backgroundImage, setBackgroundImage] = useState("");
   const [donationData, setDonationData] = useState({
-    amount: "",
-    donorName: "",
-    donorDob: "",
-    donorGender: "",
-    donorType: "",
-    donorEmail: "",
-    donorPhone: "",
-    message: "",
+    title: "",
+    organisationName: "",
+    dateOfCreation: "",
+    place: "",
+    time: "",
+    description: "",
   });
 
-  const onDrop = (acceptedFiles) => {
+  const onDropBackground = (acceptedFiles) => {
     const file = acceptedFiles[0];
-
     if (file && file.type.startsWith("image/")) {
       const reader = new FileReader();
-
       reader.onload = () => {
-        setBanner(reader.result);
+        setBackgroundImage(reader.result);
       };
-
       reader.readAsDataURL(file);
     } else {
       console.error("Invalid file type. Please upload an image.");
     }
   };
 
-  const { getRootProps, getInputProps } = useDropzone({
-    onDrop,
+  const { getRootProps: getBackgroundRootProps, getInputProps: getBackgroundInputProps } = useDropzone({
+    onDrop: onDropBackground,
     accept: "image/*",
   });
 
@@ -48,136 +43,131 @@ const AskDonation = () => {
   const handleSaveClick = () => {
     alert("Data is saved...");
     setDonationData({
-      amount: "",
-      donorName: "",
-      donorDob: "",
-      donorGender: "",
-      donorType: "",
-      donorEmail: "",
-      donorPhone: "",
-      message: "",
+      title: "",
+      organisationName: "",
+      dateOfCreation: "",
+      place: "",
+      time: "",
+      description: "",
     });
+    setBackgroundImage("");
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6">
-      <Button
-        content={
-          <>
-            <FaAngleLeft />
-            Back
-          </>
-        }
-        variant="gray"
-        size="md"
-        onClick={() => history.back()}
-      />
-      <div {...getRootProps()} className="mb-4 cursor-pointer">
-        <input {...getInputProps()} />
-        <img
-          className="w-full h-64 object-cover rounded"
-          src={banner}
-          alt="Banner"
+    <div className="min-h-screen flex flex-col">
+      {/* Back Button */}
+      <div className="flex justify-start p-6">
+        <Button
+          content={
+            <>
+              <FaAngleLeft />
+              Back
+            </>
+          }
+          variant="gray"
+          size="md"
+          onClick={() => history.back()}
+          className="flex-shrink-0"
         />
       </div>
-      {/* Form */}
-      <div className="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-6 mt-6">
-        <form className="w-full text-left">
-          <div className="mb-2">
-            <label className="block text-gray-700">
-              Name:
-              <input
-                type="text"
-                name="donorName"
-                value={donationData.donorName}
-                onChange={handleChange}
-                className="mt-1 block w-full border rounded px-2 py-1"
-              />
-            </label>
-          </div>
-          <div className="mb-2">
-            <label className="block text-gray-700">
-              Date of Birth:
-              <input
-                type="date"
-                name="donorDob"
-                value={donationData.donorDob}
-                onChange={handleChange}
-                className="mt-1 block w-full border rounded px-2 py-1"
-              />
-            </label>
-          </div>
-          <div className="mb-2">
-            <label className="block text-gray-700">
-              Gender:
-              <select
-                name="donorGender"
-                value={donationData.donorGender}
-                onChange={handleChange}
-                className="mt-1 block w-full border rounded px-2 py-1"
-              >
-                <option value="">Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-              </select>
-            </label>
-          </div>
-          <div className="mb-2">
-            <label className="block text-gray-700">
-              Individual or NGO:
-              <select
-                name="donorType"
-                value={donationData.donorType}
-                onChange={handleChange}
-                className="mt-1 block w-full border rounded px-2 py-1"
-              >
-                <option value="">Select Type</option>
-                <option value="Individual">Individual</option>
-                <option value="NGO">NGO</option>
-              </select>
-            </label>
-          </div>
-          <div className="mb-2">
-            <label className="block text-gray-700">
-              Amount:
-              <input
-                type="number"
-                name="amount"
-                value={donationData.amount}
-                onChange={handleChange}
-                className="mt-1 block w-full border rounded px-2 py-1"
-              />
-            </label>
-          </div>
-          <div className="mb-2">
-            <label className="block text-gray-700">
-              Any Text:
-              <textarea
-                name="message"
-                value={donationData.message}
-                onChange={handleChange}
-                className="mt-1 block w-full border rounded px-2 py-1"
-              />
-            </label>
-          </div>
-          <div className="flex justify-between mt-4">
-            {/* <button
-              type="button"
-              onClick={handleSaveClick}
-              className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700"
-            >
-              Save
-            </button> */}
-            <Button
-              content="Save"
-              variant='green'
-              size='md'
-              onClick={handleSaveClick}
-              className="rounded hover:bg-green-700"
+
+      {/* Form Container */}
+      <div className="flex-grow flex items-center justify-center p-6">
+        <div className="max-w-3xl w-full bg-white shadow-md rounded-lg p-6">
+          {/* Background Image Dropzone */}
+          <div {...getBackgroundRootProps()} className="mb-4 cursor-pointer">
+            <input {...getBackgroundInputProps()} />
+            <img
+              className="w-full h-64 object-cover rounded"
+              src={backgroundImage || "https://via.placeholder.com/800x200"}
+              alt="Background"
             />
           </div>
-        </form>
+
+          {/* Form */}
+          <form className="w-full text-left">
+            <div className="mb-2">
+              <label className="block text-gray-700">
+                Title:
+                <input
+                  type="text"
+                  name="title"
+                  value={donationData.title}
+                  onChange={handleChange}
+                  className="mt-1 block w-full border rounded px-2 py-1"
+                />
+              </label>
+            </div>
+            <div className="mb-2">
+              <label className="block text-gray-700">
+                Organisation Name:
+                <input
+                  type="text"
+                  name="organisationName"
+                  value={donationData.organisationName}
+                  onChange={handleChange}
+                  className="mt-1 block w-full border rounded px-2 py-1"
+                />
+              </label>
+            </div>
+            <div className="mb-2">
+              <label className="block text-gray-700">
+                Date of Creation:
+                <input
+                  type="date"
+                  name="dateOfCreation"
+                  value={donationData.dateOfCreation}
+                  onChange={handleChange}
+                  className="mt-1 block w-full border rounded px-2 py-1"
+                />
+              </label>
+            </div>
+            <div className="mb-2">
+              <label className="block text-gray-700">
+                Place:
+                <input
+                  type="text"
+                  name="place"
+                  value={donationData.place}
+                  onChange={handleChange}
+                  className="mt-1 block w-full border rounded px-2 py-1"
+                />
+              </label>
+            </div>
+            <div className="mb-2">
+              <label className="block text-gray-700">
+                Time:
+                <input
+                  type="time"
+                  name="time"
+                  value={donationData.time}
+                  onChange={handleChange}
+                  className="mt-1 block w-full border rounded px-2 py-1"
+                />
+              </label>
+            </div>
+            <div className="mb-2">
+              <label className="block text-gray-700">
+                Description:
+                <textarea
+                  name="description"
+                  value={donationData.description}
+                  onChange={handleChange}
+                  className="mt-1 block w-full border rounded px-2 py-1"
+                />
+              </label>
+            </div>
+            <div className="flex justify-between mt-4">
+              <Button
+                content="Save"
+                variant="green"
+                size="md"
+                onClick={handleSaveClick}
+                className="rounded hover:bg-green-700"
+              />
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
