@@ -13,6 +13,7 @@ function Signin() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const onSubmit = (data) => {
     dispatch(loginUser(data));
     localStorage.setItem("isLoggedIn", true);
@@ -22,17 +23,14 @@ function Signin() {
   };
 
   return (
-    <div className="w-full place-content-center">
-      <div className="flex flex-col items-center justify-center">
-        <h1 className="text-3xl font-bold">Signin</h1>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-4 mt-4"
-        >
+    <div className="w-full min-h-screen flex items-center justify-center bg-black bg-opacity-50">
+      <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-md max-w-md w-full">
+        <h1 className="text-3xl font-bold mb-4 text-center">Sign In</h1>
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
           <input
-            {...register("username", { required: "username is required" })}
+            {...register("username", { required: "Username is required" })}
             type="text"
-            placeholder="username"
+            placeholder="Username"
             className="p-2 border border-gray-300 rounded-md"
           />
           {errors.username && (
@@ -50,10 +48,10 @@ function Signin() {
           )}
 
           <button className="bg-blue-500 text-white p-2 rounded-md">
-            Signin
+            Sign In
           </button>
-          <Link to="/signup" className="text-blue-500">
-            Don't have an account? Signup
+          <Link to="/signup" className="text-blue-500 text-center">
+            Don't have an account? Sign Up
           </Link>
         </form>
       </div>
