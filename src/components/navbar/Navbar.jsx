@@ -33,17 +33,24 @@ function Navbar() {
       )}
       {/* logo section */}
       <div className="logo">
-        <img onClick={()=> navigate('/')} src="/sarathi-logo.png" alt="" className="h-14 cursor-pointer" />
-      </div>
-      <div className="navigation flex gap-3">
-        <Button
-          content="Seek Help"
-          size="md"
-          onClick={() => {
-            navigate("/seek help");
-          }}
+        <img
+          onClick={() => navigate("/")}
+          src="/sarathi-logo.png"
+          alt=""
+          className="h-14 cursor-pointer"
         />
       </div>
+      {isLoggedIn && (
+        <div className="navigation flex gap-3">
+          <Button
+            content="Seek Help"
+            size="md"
+            onClick={() => {
+              navigate("/seek help");
+            }}
+          />
+        </div>
+      )}
     </div>
   );
 }
