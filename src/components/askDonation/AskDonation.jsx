@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import Button from "../reusable/Button";
 import { FaAngleLeft } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { createEvent } from "../../redux/slices/allEvents/newEventSlice";
 
 const AskDonation = () => {
+  const dispatch = useDispatch();
   const [backgroundImage, setBackgroundImage] = useState("");
-  const [donationData, setDonationData] = useState({
+  const [eventData, seteventData] = useState({
     title: "",
     organisationName: "",
     dateOfCreation: "",
@@ -27,22 +30,36 @@ const AskDonation = () => {
     }
   };
 
-  const { getRootProps: getBackgroundRootProps, getInputProps: getBackgroundInputProps } = useDropzone({
+  const {
+    getRootProps: getBackgroundRootProps,
+    getInputProps: getBackgroundInputProps,
+  } = useDropzone({
     onDrop: onDropBackground,
     accept: "image/*",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setDonationData((prevData) => ({
+    seteventData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
   };
 
-  const handleSaveClick = () => {
-    alert("Data is saved...");
-    setDonationData({
+  const handleSaveClick = (e) => {
+    e.preventDefault();
+    console.log(backgroundImage);
+    dispatch(createEvent({
+      src: "https://via.placeholder.com/300x300?text=DefaultImageDueToNoBackend",
+      title: eventData.title,
+      place: eventData.place,
+      Date: eventData.dateOfCreation,
+      Time: eventData.time,
+      organizedBy: eventData.organisationName,
+    })).then(() => {
+      alert("Event created successfully");
+    });
+    seteventData({
       title: "",
       organisationName: "",
       dateOfCreation: "",
@@ -85,14 +102,14 @@ const AskDonation = () => {
           </div>
 
           {/* Form */}
-          <form className="w-full text-left">
+          <form className="w-full text-left" onSubmit={handleSaveClick}>
             <div className="mb-2">
               <label className="block text-gray-700">
                 Title:
                 <input
                   type="text"
                   name="title"
-                  value={donationData.title}
+                  value={eventData.title}
                   onChange={handleChange}
                   className="mt-1 block w-full border rounded px-2 py-1"
                 />
@@ -104,7 +121,7 @@ const AskDonation = () => {
                 <input
                   type="text"
                   name="organisationName"
-                  value={donationData.organisationName}
+                  value={eventData.organisationName}
                   onChange={handleChange}
                   className="mt-1 block w-full border rounded px-2 py-1"
                 />
@@ -116,7 +133,7 @@ const AskDonation = () => {
                 <input
                   type="date"
                   name="dateOfCreation"
-                  value={donationData.dateOfCreation}
+                  value={eventData.dateOfCreation}
                   onChange={handleChange}
                   className="mt-1 block w-full border rounded px-2 py-1"
                 />
@@ -128,7 +145,7 @@ const AskDonation = () => {
                 <input
                   type="text"
                   name="place"
-                  value={donationData.place}
+                  value={eventData.place}
                   onChange={handleChange}
                   className="mt-1 block w-full border rounded px-2 py-1"
                 />
@@ -140,7 +157,7 @@ const AskDonation = () => {
                 <input
                   type="time"
                   name="time"
-                  value={donationData.time}
+                  value={eventData.time}
                   onChange={handleChange}
                   className="mt-1 block w-full border rounded px-2 py-1"
                 />
@@ -151,7 +168,7 @@ const AskDonation = () => {
                 Description:
                 <textarea
                   name="description"
-                  value={donationData.description}
+                  value={eventData.description}
                   onChange={handleChange}
                   className="mt-1 block w-full border rounded px-2 py-1"
                 />
@@ -159,10 +176,10 @@ const AskDonation = () => {
             </div>
             <div className="flex justify-between mt-4">
               <Button
+                type="submit"
                 content="Save"
                 variant="green"
                 size="md"
-                onClick={handleSaveClick}
                 className="rounded hover:bg-green-700"
               />
             </div>

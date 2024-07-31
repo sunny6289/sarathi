@@ -60,7 +60,7 @@ function FilterEmergencies({ label, options, required, onChange }) {
         {isOpenFilter && (
           <>
             <div className="fixed"></div>
-            <div className="border border-neutral-200 p-[12px] absolute top-16 left-0 bg-white flex flex-col gap-6 shadow-2xl rounded-md w-72 ml-[80%] cursor-pointer">
+            <div className="border z-10 border-neutral-200 p-[12px] absolute top-16  bg-white flex flex-col gap-6 shadow-2xl rounded-md w-72 cursor-pointer right-0">
               {options.map((optionObj) => {
                 const category = Object.keys(optionObj)[0];
                 const optionsList = optionObj[category];

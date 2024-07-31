@@ -1,14 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { FaFilter, FaSort, FaChevronDown, FaAngleLeft } from "react-icons/fa6";
+import { FaAngleLeft } from "react-icons/fa6";
 import EducationandJobContainer from "../../components/Education and Job Components/EducationandJobContainer/EducationandJobContainer";
 import "./WeProvide.css";
-import { useState } from "react";
 import Button from "../../components/reusable/Button";
-import { LuFilter } from "react-icons/lu";
 
 const WeProvide = () => {
   const navigate = useNavigate();
-  const [filterContent, setFilterContent] = useState(false);
   return (
     <div className="h-min-screen w-[100%] bg-white flex-col ">
       <div className="backBtnAndFilterContainer min-h-8 px-20 py-8 flex items-center justify-between">
@@ -24,58 +21,7 @@ const WeProvide = () => {
             size={'md'}
             onClick={() => navigate(-1)}
           />
-          <Button
-            variant={'gray'}
-            size={'md'}
-            content={
-              <>
-                {filterContent ? (
-                  <FaFilter className="text-xl" />
-                ) : (
-                  <LuFilter className="text-xl" />
-                )}
-                <span className="text-lg font-semibold">Filter</span>
-              </>
-            }
-            onClick={() => setFilterContent(!filterContent)}
-          />
         </div>
-        {filterContent ? (
-          <div className="filterContent w-[70%] flex items-center justify-around">
-            <Button
-              className={"bg-slate-300"}
-              size={'md'}
-              content={
-                <>
-                  <span className="text-lg font-semibold">Job Type</span>
-                  <FaChevronDown className="text-lg" />
-                </>
-              }
-            />
-            <Button
-              className={"bg-slate-300"}
-              size={'md'}
-              content={
-                <>
-                  <span className="text-lg font-semibold">Domain</span>
-                  <FaChevronDown className="text-lg" />
-                </>
-              }
-            />
-            <Button
-              className={"bg-slate-300"}
-              size={'md'}
-              content={
-                <>
-                  <span className="text-lg font-semibold">Sort</span>
-                  <FaSort className="text-lg" />
-                </>
-              }
-            />
-          </div>
-        ) : (
-          ""
-        )}
       </div>
       <div className="eduAndjobContainer flex justify-center items-center">
         <EducationandJobContainer />
