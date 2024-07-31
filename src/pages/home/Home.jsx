@@ -84,7 +84,7 @@ function Home() {
           style={{ backgroundImage: `url(poverty.jpg)` }}
           data-aos="fade-in"
         >
-          {!showSignIn && (
+          {!showSignIn && !isLoggedIn &&(
             <>
               <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold bg-black bg-opacity-50 p-4 rounded shadow-lg text-center">
                 No Poverty Initiative
@@ -102,7 +102,7 @@ function Home() {
         </div>
       )}
 
-      {showSignIn && (
+      {showSignIn && !isLoggedIn &&(
         <div
           className="absolute w-full h-screen flex items-center justify-center"
           style={{ top: 0, left: 0 }}
