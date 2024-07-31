@@ -3,6 +3,7 @@ import { useForm, useWatch } from "react-hook-form";
 import { setToast } from "../../redux/slices/toastSlice";
 import { useDispatch } from "react-redux";
 import Filter from "../reusable/Filter";
+import { createEmergency } from "../../redux/slices/emergency/emergencySlice";
 
 const SeekHelpForm = () => {
   const {
@@ -15,14 +16,23 @@ const SeekHelpForm = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    console.log(data);
-    // Handle form submission here
-    dispatch(
-      setToast({
-        message: "Form submitted successfully",
-        status: "success",
-      })
-    );
+    dispatch(createEmergency({
+      contactNumber: data.contactNumber,
+      description: data.description,
+      emailAddress: data.emailAddress,
+      fullName: data.fullName,
+      helptype: data.helpType,
+      location: data.location,
+      urgency: data.urgency,
+      date: new Date().toISOString().split("T")[0],
+      time: new Date().toISOString().split("T")[1].split(".")[0],
+    }));
+      dispatch(
+        setToast({
+          message: "Form submitted successfully",
+          status: "success",
+        })
+      );
   };
 
   const options = [

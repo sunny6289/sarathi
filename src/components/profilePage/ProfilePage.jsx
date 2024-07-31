@@ -2,42 +2,16 @@ import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import Button from "../reusable/Button";
 import { FaAngleLeft } from "react-icons/fa6";
+import { useDispatch, useSelector } from "react-redux";
+import { FaEdit } from "react-icons/fa";
+import { updateProfileData } from "../../redux/slices/profile/profileSlice";
 
 const ProfilePage = () => {
-  const [profileData, setProfileData] = useState({
-    profilePicture: "https://via.placeholder.com/150",
-    name: "ABCD",
-    dob: "1990-01-01",
-    gender: "Male",
-    email: "abcd@example.com",
-    phone: "1234567890",
-  });
+  const dispatch = useDispatch();
+  const profileData = useSelector((state) => state.profile.profileData);
 
   const [isEditing, setIsEditing] = useState(false);
   const [tempProfileData, setTempProfileData] = useState(profileData);
-
-  const onDrop = (acceptedFiles) => {
-    const file = acceptedFiles[0];
-
-    if (file && file.type.startsWith("image/")) {
-      const reader = new FileReader();
-
-      reader.onload = () => {
-        setProfileData((prevState) => ({
-          ...prevState,
-          profilePicture: reader.result,
-        }));
-      };
-
-      reader.readAsDataURL(file);
-    } else {
-      console.error("Invalid file type. Please upload an image.");
-    }
-  };
-
-  const { getRootProps, getInputProps } = useDropzone({
-    onDrop,
-  });
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -45,8 +19,18 @@ const ProfilePage = () => {
   };
 
   const handleSaveClick = () => {
-    setProfileData(tempProfileData);
     setIsEditing(false);
+    console.log(tempProfileData);
+    dispatch(
+      updateProfileData({
+        ...tempProfileData,
+        dob: tempProfileData.dob.split("-").reverse().join("-"),
+        email: tempProfileData.email,
+        name: tempProfileData.name,
+        phone: tempProfileData.phone,
+        gender: tempProfileData.gender,
+      })
+    );
   };
 
   const handleCancelClick = () => {
@@ -78,17 +62,17 @@ const ProfilePage = () => {
         />
       </div>
       <div className="max-w-lg w-full bg-white shadow-lg rounded-lg p-6">
+        <div
+          className="flex justify-end text-xl cursor-pointer"
+          onClick={handleEditClick}
+        >
+          <FaEdit />
+        </div>
         <div className="flex flex-col items-center">
-          <div
-            {...getRootProps()}
-            className="w-32 h-32 rounded-full overflow-hidden mb-4 cursor-pointer border-2 border-gray-300"
-          >
-            <input {...getInputProps()} />
-            <img
-              className="w-full h-full object-cover"
-              src={profileData.profilePicture}
-              alt="Profile"
-            />
+          <div className="w-32 h-32 rounded-full border-2 border-gray-300 flex place-content-center place-items-center leading-none">
+            <span className="text-black text-[7rem] font-bold font-mono text-center leading-none">
+              {profileData.name.slice(0, 1).toUpperCase()}
+            </span>
           </div>
 
           {isEditing ? (
@@ -111,6 +95,7 @@ const ProfilePage = () => {
                   <input
                     type="date"
                     name="dob"
+                    format="dd-MM-yyyy"
                     value={tempProfileData.dob}
                     onChange={handleChange}
                     className="mt-1 block w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-300"
@@ -158,16 +143,16 @@ const ProfilePage = () => {
               </div>
               <div className="flex justify-between mt-6">
                 <Button
-                  content="Save"
-                  variant="green"
-                  size="md"
-                  onClick={handleSaveClick}
-                />
-                <Button
                   content="Cancel"
                   variant="red"
                   size="md"
                   onClick={handleCancelClick}
+                />
+                <Button
+                  content="Save"
+                  variant="green"
+                  size="md"
+                  onClick={handleSaveClick}
                 />
               </div>
             </div>
@@ -188,12 +173,6 @@ const ProfilePage = () => {
               <p className="text-gray-600 mb-2">
                 <strong>Phone:</strong> {profileData.phone}
               </p>
-              <button
-                onClick={handleEditClick}
-                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring focus:border-blue-300"
-              >
-                Edit
-              </button>
             </div>
           )}
         </div>

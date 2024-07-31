@@ -16,6 +16,7 @@ import SeekhelpPage from "./pages/seek help/SeekhelpPage.jsx";
 import AskDonationPage from "./pages/askDonation/AskDonationPage.jsx";
 import Emergency from "./pages/emergency/Emergency.jsx";
 import Profile from "./pages/profile/Profile.jsx";
+import JobDetails from "./pages/we provide/jobDetails/JobDetails.jsx";
 // import CardDetails from "./components/card components/card/card details/CardDetails.jsx";
 // import WeProvide from "./pages/we provide/WeProvide.jsx";
 // Create a BrowserRouter instance
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: "weProvide",
         element: <ProtectedRoute element={<WeProvide />} />, // ProtectedRoute to restrict access to the WeProvide page, only accessible to authenticated users
+      },
+      {
+        path: "weProvide/jobDetails/:id",
+        element: <ProtectedRoute element={<JobDetails />} />, // ProtectedRoute to restrict access to the JobDetails page, only accessible to authenticated users
       },
       {
         path: "seek help",

@@ -1,11 +1,13 @@
 import React from "react";
-import { TEMP_EVENTS } from "../../../rawData/tempEvents";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../components/reusable/Button";
 import { FaAngleLeft } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const AllEvent = () => {
   const navigate = useNavigate();
+  const data = useSelector(state => state.newEvent.data);
+  console.log(data);
 
   return (
     <div className="container mx-auto p-4">
@@ -23,7 +25,7 @@ const AllEvent = () => {
         />
         <h1 className="text-4xl font-bold text-center mb-6">All Events</h1>
       </div>
-      {TEMP_EVENTS.map((event) => (
+      {data?.map((event) => (
         <div
           onClick={() => navigate(`/allEvents/${event.id}`)}
           key={event.id}

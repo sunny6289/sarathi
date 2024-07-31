@@ -4,6 +4,7 @@ import Button from "../reusable/Button";
 import { FaAngleLeft } from "react-icons/fa";
 import FilterEmergencies from "../reusable/FilterEmergencies";
 import './emergencies.css';
+import { useSelector } from "react-redux";
 
 const INITIAL_CONTACT_VALUES = {
   emerId: "",
@@ -13,6 +14,8 @@ const INITIAL_CONTACT_VALUES = {
 }
 
 const Emergencies = () => {
+  const data = useSelector((state) => state.emergency.data);
+  console.log(data);
   const options = [{ By: ["High", "Moderate", "Critical"] }];
   const [contactDetails, setContactDetails] = useState(INITIAL_CONTACT_VALUES);
 
@@ -29,7 +32,7 @@ const Emergencies = () => {
     setSelectedOptions(newSelectedOptions);
   };
 
-  const filteredEmergencies = TEMP_EMERGENCIES.filter((emer) => {
+  const filteredEmergencies = data.filter((emer) => {
     const categorySelectedOptions = selectedOptions["By"] || [];
     return (
       categorySelectedOptions.length === 0 ||
