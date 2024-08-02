@@ -8,7 +8,8 @@ const CardDetails = () => {
   const params = useParams();
   const data = useSelector(state => state.newEvent.data); 
   const currCard = data.find((item) => item.id === params.id);
-  const { src = '', title, place, Date, Time, organizedBy } = currCard;
+  const { src, title, place, Date, Time, organizedBy } = currCard;
+  console.log(currCard);
 
   return (
     <div className="min-h-screen bg-gray-100 p-3">
