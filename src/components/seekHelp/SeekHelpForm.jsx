@@ -2,7 +2,7 @@ import React from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { setToast } from "../../redux/slices/toastSlice";
 import { useDispatch } from "react-redux";
-import Filter from "../reusable/Filter";
+// import Filter from "../reusable/Filter";
 import { createEmergency } from "../../redux/slices/emergency/emergencySlice";
 
 const SeekHelpForm = () => {
@@ -11,6 +11,7 @@ const SeekHelpForm = () => {
     handleSubmit,
     formState: { errors },
     control,
+    reset,
   } = useForm();
   const helpType = useWatch({ control, name: "helpType" });
   const dispatch = useDispatch();
@@ -27,13 +28,16 @@ const SeekHelpForm = () => {
       date: new Date().toISOString().split("T")[0],
       time: new Date().toISOString().split("T")[1].split(".")[0],
     }));
-      dispatch(
-        setToast({
-          message: "Form submitted successfully",
-          status: "success",
-        })
-      );
+    reset();
+    dispatch(
+      setToast({
+        message: "Form submitted successfully",
+        status: "success",
+      })
+    );
   };
+
+  
 
   const options = [
     { Food: ["Option 1", "Option 2", "Option 3"] },
@@ -165,56 +169,6 @@ const SeekHelpForm = () => {
             <p className="text-red-500 text-sm">Description is required</p>
           )}
         </div>
-
-        {/* Emergency Contact Information
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div>
-            <label className="block text-sm font-medium">
-              Emergency Contact Name <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              {...register("emergencyContactName", { required: true })}
-              className="mt-1 block w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            {errors.emergencyContactName && (
-              <p className="text-red-500 text-sm">
-                Emergency Contact Name is required
-              </p>
-            )}
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium">
-              Emergency Contact Relationship{" "}
-              <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              {...register("emergencyContactRelationship", { required: true })}
-              className="mt-1 block w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            {errors.emergencyContactRelationship && (
-              <p className="text-red-500 text-sm">Relationship is required</p>
-            )}
-          </div>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium">
-            Emergency Contact Number <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="tel"
-            {...register("emergencyContactNumber", { required: true })}
-            className="mt-1 block w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          {errors.emergencyContactNumber && (
-            <p className="text-red-500 text-sm">
-              Emergency Contact Number is required
-            </p>
-          )}
-        </div> */}
 
         {/* Urgency Level */}
         <div>

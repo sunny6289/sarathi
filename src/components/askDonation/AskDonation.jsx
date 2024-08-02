@@ -48,7 +48,7 @@ const AskDonation = () => {
 
   const handleSaveClick = (e) => {
     e.preventDefault();
-    console.log(backgroundImage);
+    
     dispatch(createEvent({
       src: "https://via.placeholder.com/300x300?text=DefaultImageDueToNoBackend",
       title: eventData.title,
@@ -56,9 +56,7 @@ const AskDonation = () => {
       Date: eventData.dateOfCreation,
       Time: eventData.time,
       organizedBy: eventData.organisationName,
-    })).then(() => {
-      alert("Event created successfully");
-    });
+    }))
     seteventData({
       title: "",
       organisationName: "",
@@ -67,7 +65,7 @@ const AskDonation = () => {
       time: "",
       description: "",
     });
-    setBackgroundImage("");
+    alert("Event created successfully");
   };
 
   return (
