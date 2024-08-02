@@ -7,13 +7,7 @@ const CardDetails = () => {
   const params = useParams();
   const currCard = TEMP_EVENTS.find((item) => item.id === params.id);
   const { src, title, place, Date, Time, organizedBy } = currCard;
-  /*
-      This component will be conditionally rendered depending upon 'params.id'
-      if 'params.id.slice(0,3) === 'eve' then it will rendered for Event Description
-      if 'params.id.slice(0,3) === 'edu' then it will rendered for Book Description
-      if 'params.id.slice(0,3) === 'job' then it will rendered for Job Description
-      So we will be importing "TEMP_EVENTS, TEMP_BOOKS, TEMP_JOBS" all of them
-  */
+
   return (
     <div className="min-h-screen bg-gray-100 p-3">
       <Button
