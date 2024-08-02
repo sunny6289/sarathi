@@ -8,6 +8,8 @@ const CardDetails = () => {
   const params = useParams();
   const data = useSelector(state => state.newEvent.data); 
   const currCard = data.find((item) => item.id === params.id);
+  console.log(currCard.hasOwnProperty('src'));
+  console.log('src' in currCard);
   const { src, title, place, Date, Time, organizedBy } = currCard;
   console.log(currCard);
 
