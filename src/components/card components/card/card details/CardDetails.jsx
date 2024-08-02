@@ -2,10 +2,12 @@ import { useParams } from "react-router-dom";
 import { TEMP_EVENTS } from "../../../../rawData/tempEvents";
 import Button from "../../../reusable/Button";
 import { FaAngleLeft } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const CardDetails = () => {
   const params = useParams();
-  const currCard = TEMP_EVENTS.find((item) => item.id === params.id);
+  const data = useSelector(state => state.newEvent.data); 
+  const currCard = data.find((item) => item.id === params.id);
   const { src, title, place, Date, Time, organizedBy } = currCard;
 
   return (
