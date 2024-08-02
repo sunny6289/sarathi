@@ -17,6 +17,7 @@ const SeekHelpForm = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
+    console.log(data);
     dispatch(createEmergency({
       contactNumber: data.contactNumber,
       description: data.description,
@@ -28,7 +29,16 @@ const SeekHelpForm = () => {
       date: new Date().toISOString().split("T")[0],
       time: new Date().toISOString().split("T")[1].split(".")[0],
     }));
-    reset();
+    reset({
+      additionalInfo:"",
+      contactNumber:"",
+      description:"",
+      emailAddress:"",
+      fullName:"",
+      helpType:"",
+      location:"",
+      urgency:""
+    });
     dispatch(
       setToast({
         message: "Form submitted successfully",
@@ -37,7 +47,7 @@ const SeekHelpForm = () => {
     );
   };
 
-  
+
 
   const options = [
     { Food: ["Option 1", "Option 2", "Option 3"] },
