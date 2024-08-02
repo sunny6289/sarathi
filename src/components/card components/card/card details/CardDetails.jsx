@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { TEMP_EVENTS } from "../../../../rawData/tempEvents";
+// import { TEMP_EVENTS } from "../../../../rawData/tempEvents";
 import Button from "../../../reusable/Button";
 import { FaAngleLeft } from "react-icons/fa";
 import { useSelector } from "react-redux";
@@ -8,7 +8,7 @@ const CardDetails = () => {
   const params = useParams();
   const data = useSelector(state => state.newEvent.data); 
   const currCard = data.find((item) => item.id === params.id);
-  const { src, title, place, Date, Time, organizedBy } = currCard;
+  const { src = '', title, place, Date, Time, organizedBy } = currCard;
 
   return (
     <div className="min-h-screen bg-gray-100 p-3">
